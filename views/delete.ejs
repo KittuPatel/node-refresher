@@ -1,0 +1,35 @@
+<html lang="en">
+    <%- include('header.ejs') %> 
+    <body>
+        <div class="container">
+            <h3>Book Store App</h3>
+            <ul class="nav nav-pills">
+                <li><a href="/home">List All Books</a></li>
+                <li><a href="/create">Create a Book</a></li>
+                <li class="active"><a href="/delete">Delete a Book</a></li>
+            </ul>
+        </div>
+        <br> <br>
+        <div class="container">
+            <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">
+                        <h2>Delete Book</h2>
+                        <p>Please enter Book Id to delete a book.</p>
+                    </div>
+                    <form action="http://127.0.0.1:3000/delete" method="post" id="delete">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="bookid" placeholder="Book ID">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Delete Book</button>        
+                    </form>   
+                    <% if (typeof bookMessage !== 'undefined') { %>
+                        <div class="alert alert-danger" role="alert">
+                            Book ID Does not exist!
+                        </div>
+                    <% } %>       
+                </div>
+            </div>
+        </div>              
+    </body>
+</html>
